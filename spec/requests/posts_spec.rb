@@ -12,7 +12,7 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET/index' do
     it 'should render the index template' do
       get '/users/:user_id/posts'
-      expect(response).to render_template(:index)      
+      expect(response).to render_template(:index)
     end
   end
 

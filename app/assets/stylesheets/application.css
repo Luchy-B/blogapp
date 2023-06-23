@@ -13,3 +13,129 @@
  *= require_tree .
  *= require_self
  */
+
+/* Path: app\assets\stylesheets\home.css.scss */
+*,
+html,
+a,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  gap: 20px;
+}
+
+.user-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+.user-content div {
+  display: flex;
+  flex-direction: row;
+  align-items: last baseline;
+  justify-content: center;
+  border: solid 3px black;
+  border-radius: 3%;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* user/ show */
+.usershow-bio {
+  border: solid 3px black;
+  padding: 5px;
+}
+
+.usershow-bio h4 {
+  padding-bottom: 8px;
+}
+
+.usershow-post {
+  border: solid 3px black;
+  padding: 5px;
+}
+
+.usershow-post h4 {
+  padding-bottom: 15px;
+}
+
+.usershow-postC {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.see-posts {
+  border: solid 3px black;
+  background-color: #fff;
+  width: 10%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* post/index */
+
+.postindex-post {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  border: solid 3px black;
+  margin-top: 20px;
+}
+
+.postindex-indexC {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.postindex-comment {
+  border: solid 3px black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 1px;
+}
+
+/* post/show */
+.postshow-post {
+  border: solid 3px black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+.postshow-post1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.postshow-comment {
+  border: solid 3px black;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.postshow-comment1 {
+  display: flex;
+  flex-direction: row;
+  line-height: 20px;
+}

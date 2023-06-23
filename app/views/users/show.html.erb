@@ -1,1 +1,44 @@
 <h1>Information about a given user</h1>
+
+<main class='user-container'>
+  <div class='user-content'>
+    <div class="photo">
+      <%= image_tag (@user.photo) %>
+      <img src="<%=@user.photo%>" alt='user photo' />
+    </div>
+    <div>
+        <h1><%=@user.name%></h1>
+        <p>Number of Posts: <%=@user.post_counter%></p>
+    </div>
+  </div>
+    <div class='usershow-bio'>
+        <h4>Bio</h4>
+        <%=@user.bio%>
+    </div>
+    <div>
+      <% if @user.recent_posts.empty? %>
+      <p>No posts yet</p>
+      <% else %>
+        
+        <% @user.recent_posts.each do |post| %>
+          <p><%= link_to user_post_path(@user.id, post.id) do %></p>
+          <div class='usershow-post'>
+          <h4> Post #<%= post.id %></h4>
+            <div>
+              <p><%= post.text %></p>
+            </div>
+            <div class='usershow-postC'>
+              <p>Comments: <%= post.comments.count %>,</p>
+              <p>Likes: <%= post.likes.count %></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      
+        <div class='see-posts'>
+        <p><%= link_to 'See all posts', user_posts_path(@user.id) %></p>
+      </div 
+      <% end %>
+    </div>
+
+</main>

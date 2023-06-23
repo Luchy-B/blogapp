@@ -1,1 +1,29 @@
 <h1>Post details for a given user</h1>
+
+<main class='user-container'>
+  <%= link_to 'Back', user_posts_path %>
+  <div class='postshow-post'>
+    <div class='postshow-post1'>
+      <h4> Post <%= @post.id %> by <%=@post.author.name%> </h4>
+      
+      <p>Comments: <%= @post.comments.count%>, Likes: <%= @post.likes.count%></p>
+    </div>
+
+    <div class='postshow-post2'>
+      <%= @post.text %>
+    </div>
+  </div>
+
+  <div class='postshow-comment'>
+    <%if @post.comments.empty?%>
+      <p>No comments yet</p>
+    <%else%>
+      <% @post.comments.each do |comment| %>
+        <div class='postshow-comment1'>
+        <h4> <%= comment.author.name %>: </h4>
+        <p><%= comment.text%></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>    
+</main>

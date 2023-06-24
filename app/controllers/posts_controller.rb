@@ -9,8 +9,8 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
   end
 
-  def new 
-    @post= Post.new(author: current_user)
+  def new
+    @post = Post.new(author: current_user)
   end
 
   def create
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def post_params

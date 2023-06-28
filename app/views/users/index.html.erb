@@ -1,6 +1,6 @@
 <h1>Lists of all users</h1>
 
-<main class='user-container'>
+<main class='user-container grids'>
   <% @users.each do |user| %>
     <%= link_to user_path(user.id) do %>
     <div class='user-content'>

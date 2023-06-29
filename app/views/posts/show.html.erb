@@ -5,7 +5,7 @@
   <div class='postshow-post'>
     <div class='postshow-post1'>
       <h4> Post <%= @post.id %> by <%=@post.author.name%> </h4>
-      
+      <p><%= @post.title %></p>
       <p>Comments: <%= @post.comments.count%>, Likes: <%= @post.likes.count%></p>
     </div>
 

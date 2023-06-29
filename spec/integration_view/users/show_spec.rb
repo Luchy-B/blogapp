@@ -2,35 +2,36 @@ require 'rails_helper'
 
 RSpec.describe User, type: :system do
   describe 'show page' do
-    user = User.create(name: 'Blessing', photo: 'https://picsum.photos/200/300', bio: 'Teacher from Mexico', post_counter: 0)
-    
+    user = User.create(name: 'Blessing', photo: 'https://picsum.photos/200/300', bio: 'Teacher from Mexico',
+                       post_counter: 0)
+
     @first_post = Post.create(author: user, title: 'post1', text: 'This is my first post', likes_counter: 0,
-                                comments_counter: 0)
-      @second_post = Post.create(author: user, title: 'post2', text: 'This is my second post', likes_counter: 0,
-                                 comments_counter: 0)
-      @third_post = Post.create(author: user, title: 'post3', text: 'This is my third post', likes_counter: 0,
-                                comments_counter: 0)
-      @fourth_post = Post.create(author: user, title: 'post4', text: 'This is my fourth post', likes_counter: 0,
-                                 comments_counter: 0)
+                              comments_counter: 0)
+    @second_post = Post.create(author: user, title: 'post2', text: 'This is my second post', likes_counter: 0,
+                               comments_counter: 0)
+    @third_post = Post.create(author: user, title: 'post3', text: 'This is my third post', likes_counter: 0,
+                              comments_counter: 0)
+    @fourth_post = Post.create(author: user, title: 'post4', text: 'This is my fourth post', likes_counter: 0,
+                               comments_counter: 0)
 
     it 'shows the user' do
-        visit user_path(user.id)
-        expect(page).to have_content(user.name)        
+      visit user_path(user.id)
+      expect(page).to have_content(user.name)
     end
     it 'shows the image' do
-          visit user_path(user.id)
-          expect(page).to have_xpath("//img[contains(@src,'https://picsum.photos/200/300')]")        
-      end
+      visit user_path(user.id)
+      expect(page).to have_xpath("//img[contains(@src,'https://picsum.photos/200/300')]")
+    end
 
-      it 'shows the post count' do
-        visit user_path(user)
-        expect(page).to have_content(user.post_counter)
-      end
+    it 'shows the post count' do
+      visit user_path(user)
+      expect(page).to have_content(user.post_counter)
+    end
 
-      it 'shows the bio' do
-        visit user_path(user)
-        expect(page).to have_content(user.bio)
-      end
+    it 'shows the bio' do
+      visit user_path(user)
+      expect(page).to have_content(user.bio)
+    end
 
     it 'should show last three posts only' do
       visit user_path(user.id)

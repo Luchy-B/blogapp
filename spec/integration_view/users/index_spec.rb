@@ -16,7 +16,8 @@ RSpec.describe User, type: :system do
       expect(page).to have_content(0)
     end
     it "redirects to user's show page" do
-      user2 = User.create(name: 'Oluchi', photo: 'https://randomuser.me/api/portraits/women/70.jpg', bio: 'Teacher from Poland.', post_counter: 5)
+      user2 = User.create(name: 'Oluchi', photo: 'https://randomuser.me/api/portraits/women/70.jpg',
+                          bio: 'Teacher from Poland.', post_counter: 5)
 
       visit root_path
 
@@ -29,4 +30,3 @@ RSpec.describe User, type: :system do
     end
   end
 end
-

@@ -1,15 +1,15 @@
 class CommentsController < ApplicationController
   def new
-    @user = User.find(params[:user_id])
-    @post = Post.find(params[:post_id])
+
     @comment = Comment.new
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
-    @comment.author = current_user
+    @post = Post.find(params[:id])
+    @comment = @post.comments.new(author: current_user, **comment_params)
+    puts @comment
+    puts comment_params
+    puts @post
 
     if @comment.save
       redirect_to user_post_path(user_id: current_user.id, id: @post.id), notice: 'Comment created successfully.'

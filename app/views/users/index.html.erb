@@ -9,10 +9,15 @@
     <%= link_to user_path(user.id) do %>
     <div class='user-content'>
     <div class="photo">
-      <img src="<%=user.photo%>" alt='user photo' />
+    <% @users.each do |user| %>
+      <img src="<%=user.photo%>"/>
+    <% end %>
     </div>
+    
       <div>
-        <h1><%=user.name%></h1>
+        <% @users.each do |user| %>
+          <h1><%=user.name%></h1>
+        <% end %>
         <p>Number of Posts: <%=user.post_counter%></p>
       </div>
     </div>

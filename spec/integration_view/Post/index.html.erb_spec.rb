@@ -40,6 +40,10 @@ RSpec.describe 'Post Index Page', type: :feature do
       expect(page).to have_content(@first_post.comments_counter)
     end
 
+    it 'should show pagination' do
+      expect(page).to have_content('Pagination')
+    end
+
     it 'should show likes counter' do
       expect(page).to have_content(@first_post.likes_counter)
     end

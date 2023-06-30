@@ -139,3 +139,7 @@ body {
   flex-direction: row;
   line-height: 20px;
 }
+
+.logoutpage {
+  background-color: red;
+}

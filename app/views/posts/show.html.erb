@@ -12,6 +12,8 @@
     <div class='postshow-post2'>
       <%= @post.text %>
     </div>
+    <%= link_to 'Create Comments', new_user_post_comment_path(@user, @post)%>
+<%= button_to "Add Likes", user_post_likes_path(@user, @post), method: :post, class: "btn btn-info btn-sm" %>
   </div>
 
   <div class='postshow-comment'>

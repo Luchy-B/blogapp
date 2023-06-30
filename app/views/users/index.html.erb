@@ -1,11 +1,14 @@
 <h1>Lists of all users</h1>
 
 <main class='user-container grids'>
+<div>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+</div>
+
   <% @users.each do |user| %>
     <%= link_to user_path(user.id) do %>
     <div class='user-content'>
     <div class="photo">
-      <%= image_tag (user.photo) %>
       <img src="<%=user.photo%>" alt='user photo' />
     </div>
       <div>

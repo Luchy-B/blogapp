@@ -43,6 +43,14 @@ RSpec.describe User, type: :system do
       page.has_button?('See all posts')
     end
 
+    it 'When I click on a user, I am redirected to that post show page.' do
+      user2 = User.create(name: 'Lilly', post_counter: 2, photo: 'https://randomuser.me/api/portraits/women/70.jpg',
+                          bio: 'Teacher from Poland.')
+      visit root_path(user2)
+      click_on 'Lilly'
+      expect(page).to have_current_path("/users/#{user2.id}")
+    end
+
     it "When I click to see all posts, it redirects me to the user's post's index page." do
       visit user_path(user.id)
       click_on 'See all posts'

@@ -39,5 +39,10 @@ RSpec.describe 'Post show Page', type: :feature do
     it 'should show name of commenter' do
       expect(page).to have_content(@comment1.author.name)
     end
+
+    it 'should show home when clicked on home' do
+      click_on 'Home'
+      expect(current_path).to eq('/')
+    end
   end
 end

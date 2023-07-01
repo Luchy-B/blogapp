@@ -5,25 +5,33 @@
   <div class='postshow-post'>
     <div class='postshow-post1'>
       <h4> Post <%= @post.id %> by <%=@post.author.name%> </h4>
-      
+      <p><%= @post.title %></p>
       <p>Comments: <%= @post.comments.count%>, Likes: <%= @post.likes.count%></p>
     </div>
 
     <div class='postshow-post2'>
       <%= @post.text %>
     </div>
+   
+    <div class = "btn_comment_like">
+<button class = 'btn_add_comment'><%= link_to 'Add Comment', new_comment_path%></button>
+<%= form_with model: @likes do |form| %>
+      <%= form.submit "Add Likes", class: 'btn_add_likes' %>
+<% end %>
+</div>
+
   </div>
 
   <div class='postshow-comment'>
-    <%if @post.comments.empty?%>
-      <p>No comments yet</p>
+
+  <%if @post.comments_counter > 0 %>
+    <div class = 'post_comments'>
+    <% @post.comments.each do |comment| %>
+    <p><%= comment.author.name%>: <%= comment.text%></p>
+    <%end%>
     <%else%>
-      <% @post.comments.each do |comment| %>
-        <div class='postshow-comment1'>
-        <h4> <%= comment.author.name %>: </h4>
-        <p><%= comment.text%></p>
-        </div>
-      <% end %>
-    <% end %>
+    <div class = "post_comments"> No Comments</div>
+ <%end%>
+
   </div>    
 </main>

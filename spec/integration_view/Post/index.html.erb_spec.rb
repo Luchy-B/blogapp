@@ -47,5 +47,13 @@ RSpec.describe 'Post Index Page', type: :feature do
     it 'should show likes counter' do
       expect(page).to have_content(@first_post.likes_counter)
     end
+
+    it "When I click on a user, I am redirected to that user's show page." do
+      user2 = User.create(name: 'Lilly', post_counter: 2, photo: 'https://randomuser.me/api/portraits/women/70.jpg',
+                          bio: 'Teacher from Poland.')
+      visit root_path(user2)
+      click_on 'Lilly'
+      expect(page).to have_current_path("/users/#{user2.id}")
+    end
   end
 end

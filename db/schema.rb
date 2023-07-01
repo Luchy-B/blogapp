@@ -45,10 +45,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_055300) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "photo"
-    t.text "bio"
-    t.integer "post_counter"
+    t.string "name", default: "Blessing"
+    t.string "photo", default: "https://randomuser.me/api/portraits/women/70.jpg"
+    t.text "bio", default: "HEllo"
+    t.integer "post_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
